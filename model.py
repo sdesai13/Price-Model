@@ -86,11 +86,15 @@ parameters = {"splitter": ["best", "random"],
               "max_features": ["auto", "log2", "sqrt", None],
               "max_leaf_nodes": [None, 10, 20, 30, 40, 50, 60, 70, 80, 90]}
 
-grid_search = GridSearchCV(regressor, param_grid=parameters, scoring='neg_mean_squared_error', cv=3, verbose=3)
+grid_search = GridSearchCV(regressor, param_grid=parameters, scoring='r2', cv=3, verbose=3)
 
 grid_search.fit(X_train, y_train)
 
 grid_search.best_params_
+
+
+## need to re-run grid search 
+
 
 best_params = {'max_depth': 1,
                'max_features': 'auto',
